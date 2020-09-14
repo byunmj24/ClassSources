@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="emp">
+
+	<!-- 다음은 id가 all이라고 지정된 검색 문장/mapper!
+		실행할 SQL문은 select * from emp 이며 이것을 수행한 후 나타나는 결과(result)를
+		am.vo.EmpVO로 생성하여 호출한 곳으로 반환한다. -->
+	<select id="all" resultType="am.vo.EmpVO"><!-- resultType : 결과나오면 어떤 자료형으로? -->
+		select * from emp
+	</select>
+  
+</mapper>
