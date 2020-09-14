@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>폼 연습</h1>
+	<article>
+		<form action="TestServlet3" method="post">
+			<label for="s_name">이름:</label>
+			<input type="text" id="s_name" name="u_name"/><br/>
+			<label for="s_phone">연락처:</label>
+			<input type="text" id="s_phone" name="u_phone"/><br/>
+			<label for="s_locate">사는곳:</label>
+			<select id="s_locate" name="u_locate">
+				<option></option>
+				<option>서울</option>
+				<option>경기</option>
+				<option>인천</option>
+			</select><br/>
+			
+			<button type="button" onclick="sendData()">보내기</button> <!-- 보내기 버튼을 누를 때 자바스크립트 함수를 호출하자! onclick -->
+		</form>
+	</article>
+	
+	<script>
+		function sendData(){
+			//만약에 이름을 반드시 입력해야 한다면 유효성 검사를 해야한다.
+			var name = document.getElementById("s_name").value;
+			if(name.trim().length < 1){
+				//공백만 입력했거나 아무것도 입력하지 않은 경우!
+				//length - 자바스크립트에서 키워드로 등록! ()가 없어도 된다.
+				alert("이름을 입력하세요");
+				
+				//현재문서(document)에서 아이디가  "s_name"인 곳에 커서를 넣어준다.
+				document.getElementById("s_name").focus();
+				
+				return;//제어권 반환
+			}
+			//현재문서(document)에서 첫번째 폼태그를 서버(지정된 action정보)로 보낸다.
+			document.forms[0].submit("/TestServlet3");
+		}
+	</script>
+</body>
+</html>
