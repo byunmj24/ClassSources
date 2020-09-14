@@ -1,0 +1,16 @@
+@charset "UTF-8";
+#contents{
+	width:970px;	
+	height:auto;
+	margin:auto;
+}
+#contents .main_img{
+	width:100%;
+	height:360px;
+/* 	border:1px solid black; */
+}
+#contents .main_img img{
+	width:100%;
+	height:100%;
+/* 	border:1px solid black; */
+}
