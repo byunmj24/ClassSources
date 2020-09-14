@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div id="header">
+		<h1>폼 연습</h1>
+	</div>
+	<div id="content">
+		<!-- 
+			폼 태그의 속성들 중 action과 method는 반드시 이해해야 한다.
+			action : 폼의 모든 정보를 전달하고자 하는 서버 경로
+			method : 전송방식 ( get / post )
+		-->
+		<form action="" method="get">
+			<label for="s_id">아이디:</label>
+			<input type="text" id="s_id" name="id"/>
+			<!-- name : 서버에서 내용을 받을때 쓰는 parameter -->
+			<br/>
+			<label for="s_password">비밀번호:</label>
+			<input type="password" id="s_password" name="password"/>
+			<!-- submit : 서버에 전송 > 유효성 검사를 하지않는다. -->
+<!-- 			<input type="submit" value="로그인"/> -->
+			<!-- button : 유효성 검사를 위해 사용 > JavaScript로 검사함 -->
+			<input type="button" value="로그인" onclick="test()"/><!-- 로그인 버튼을 클릭할 때마다 test()함수를 호출한다. -->
+		</form>
+	</div>
+	<script>
+		function test(){
+			alert("아무것도 없으니까 돌아가!!!s(~.~)s");
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	table{
+		width:500px;
+		border:1px solid coral;
+		border-collapse:collapse;
+	}
+	th, td{ /* th 또는 th를 만나면 수행하는 곳 */
+		border:1px solid coral;
+	}
+	.tst_r{
+		text-align:right;
+	}
+	thead>tr{ /* '>' : thead의 자식요소들 중 tr에게만 적용하는 곳 */
+		height:50px;
+		background-color:#ababab;
+	}
+	tfoot>tr{
+		height:35px;
+	}
+</style>
+</head>
+<body>
+	<header>
+		<h1>테이블 병합</h1>
+	</header>
+	<article><!-- 현재 문서의 본문 -->
+		<div>
+			<table>
+				<colgroup>
+					<col width="70">
+					<col width="*">
+					<col width="130">
+					<col width="80">
+				</colgroup>
+				<tfoot>
+					<tr>
+						<!-- 4개의 열을 하나로 병합한다. -->
+						<td colspan="4" class="tst_r">
+							자료제공:(주)글로벌1zzang
+						</td>
+					</tr>
+				</tfoot>
+				<tbody>
+					<tr>
+						<td>일지매</td>
+						<td class="tst_r">il111@naver.com</td>
+						<td class="tst_r">010-1234-5678</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>홍길동</td>
+						<td class="tst_r">hong543@gmail.com</td>
+						<td class="tst_r">010-3567-4321</td>
+						<td>호형호제</td>
+					</tr>
+				</tbody>
+				<thead>
+					<tr>
+						<th>이름</th>
+						<th>이메일</th>
+						<th>연락처</th>
+						<th>구분</th>
+					</tr>
+				</thead>
+			</table>
+		</div>
+	</article>
+	<footer><!-- 현재 문서의 바닥글 -->
+		<h2>바닥글</h2>
+	</footer>
+</body>
+</html>

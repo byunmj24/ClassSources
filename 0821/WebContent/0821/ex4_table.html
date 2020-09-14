@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>표연습</title>
+
+<style>
+	/*	CSS주석 
+		현재 문서에서 table이라는 태그들에게 적용한다.
+	*/
+	table{
+		border-collapse:collapse;
+		border:2px;
+		border-color:red;
+		border-style:solid;
+		width:500px;
+	}
+	/* table태그 안에 td태그들 모두에게 적용한다. */
+	td,th{
+		border:1px red solid;
+		/* border 내 두께, 색, style을 한번에 지정가능하다. */
+	}
+	
+</style>
+
+</head>
+<body><!-- 테이블에 모양을 지정하기 위해 style을 적용하는 예제 -->
+	<table>
+		<caption>테이블 제목</caption>
+		<colgroup>
+			<col width="80"/>
+			<col width="*"/>
+			<col width="60"/>
+			<col width="120"/>
+		</colgroup>
+		
+		<thead>
+			<tr>
+				<th>사번</th>
+				<th class="name" id="name">이름</th>
+				<th>직종</th>
+				<th>부서</th>
+			</tr>
+		</thead>
+		<tfoot>
+			<tr>
+				<td>바닥1</td>
+				<td>바닥2</td>
+				<td>바닥3</td>
+				<td>바닥4</td>
+			</tr>
+		</tfoot>
+		<tbody>
+			<tr>
+				<td>100</td>
+				<td>을불</td>
+				<td>IT</td>
+				<td>개발1팀</td>
+			</tr>
+			<tr>
+				<td>111</td>
+				<td>마루치</td>
+				<td>IT</td>
+				<td>개발1팀</td>
+			</tr>
+			<tr>
+				<td>112</td>
+				<td>아라치</td>
+				<td>IT</td>
+				<td>개발1팀</td>
+			</tr>
+		</tbody>
+	</table>
+	<br/><br/><br/>
+	
+	<table>
+		<caption>표연습 해보기</caption>
+		<colgroup>
+			<col width="50"/>
+			<col width="100"/>
+			<col width="150"/>
+			<col width="200"/>
+		</colgroup>
+		<thead>
+			<tr>
+				<th>사번</th>
+				<th class="name">이름</th>
+				<th>직종</th>
+				<th>부서</th>
+			</tr>
+		</thead>
+		<tfoot>
+			<tr>
+				<td>바닥1</td>
+				<td>바닥2</td>
+				<td>바닥3</td>
+				<td>바닥4</td>
+			</tr>
+		</tfoot>
+		<tbody>
+			<tr>
+				<td>100</td>
+				<td>을불</td>
+				<td>IT</td>
+				<td>개발1팀</td>
+			</tr>
+			<tr>
+				<td>111</td>
+				<td>마루치</td>
+				<td>IT</td>
+				<td>개발1팀</td>
+			</tr>
+			<tr>
+				<td>112</td>
+				<td>아라치</td>
+				<td>IT</td>
+				<td>개발1팀</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>
