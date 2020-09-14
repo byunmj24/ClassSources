@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ex6_이미지수직메뉴</title>
+<style>
+	ul#v_menu{
+		list-style:none;
+		padding:0;
+		margine:0;
+		width:300px;
+	}
+	ul#v_menu>li{
+		width:300px;
+		height:100px;
+		margine:0;
+	}
+	ul#v_menu>li>a{
+		display:block;
+		width:100%;
+		height:100%;
+		text-indent:-9999px;
+/* 		border:1px solid black; */
+	}
+	li#main>a{
+		background:url(images/naver.jpg) no-repeat left top;
+	}
+	li#mail>a{
+		background:url(images/mail_a.gif) no-repeat left top;
+	}
+	li#cafe>a{
+		background:url(images/cafe_a.gif) no-repeat left top;
+	}
+	li#blog>a{
+		background:url(images/blog_a.gif) no-repeat left top;
+	}
+	li#kin>a{
+		background:url(images/kin_a.gif) no-repeat left top;
+	}
+	ul#v_menu a:hover{/* ul태그의 자손들 중 a태그에 마우스를 올렸을 때 */
+		background-position: left center;
+	}
+	ul#v_menu a:active{/* ul태그의 자손들 중 a태그에 마우스를 클릭할 때 */
+		background-position: left bottom;
+	}
+/*
+	li#mail>a:hover{
+		background-position: left center;
+	}
+	li#mail>a:active{
+		background-position: left bottom;
+	}
+	li#cafe>a:hover{
+		background-position: left center;
+	}
+	li#cafe>a:active{
+		background-position: left bottom;
+	}
+	li#blog>a:hover{
+		background-position: left center;
+	}
+	li#blog>a:active{
+		background-position: left bottom;
+	}
+	li#kin>a:hover{
+		background-position: left center;
+	}
+	li#kin>a:active{
+		background-position: left bottom;
+	}
+*/
+</style>
+</head>
+<body>
+	<h1></h1>
+	<div id="menu">
+		<ul id="v_menu">
+			<li id="main"><a href="https://www.naver.com/">네이버</a></li>
+			<li id="mail"><a href="https://mail.naver.com/">메&nbsp;&nbsp;&nbsp;일</a></li>
+			<li id="cafe"><a href="https://cafe.naver.com/">카&nbsp;&nbsp;&nbsp;페</a></li>
+			<li id="blog"><a href="https://blog.naver.com/">블로그</a></li>
+			<li id="kin"><a href="https://kin.naver.com/">지식인</a></li>
+		</ul>
+	</div>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ex5_이미지수직메뉴</title>
+
+<style>
+	/* ul태그들 중 아이디가 v_menu인 요소에게 적용! */
+	ul#v_menu{/* ul #v_menu로 쓰면 자손 선택하는 명령어가 된다. */
+		margin:0;
+		padding:0;
+		width:300px;
+		list-style:none; /* 앞에 점 없애기 */
+	}
+	ul#v_menu>li{
+		margin:0;
+		width:300px;
+		height:100px;
+	}
+	/* li태그 안에 존재하는 a태그를 선택하여, 크기를 li태그와 같게 한다. */
+	ul#v_menu>li>a{
+		display:block;
+		width:100%;  /* 300px */
+		height:100%; /* 100px */
+		/* 문자열을 보이지 않게 하기 위해 화면 밖으로 빼낸다. */
+		text-indent:-9999px;
+		border:1px solid black;
+	}
+	
+	/* li태그들 중 아이디가 mail인 요소 안에 a태그 배경이미지로 현재 문서가 위치한 곳에서
+		images라는 폴더 안에 있는 mail.gif파일을 배경이미지로 지정한다.*/
+	li#mail>a{
+		background-image:url("images/mail.gif"); /*쌍따옴표는 없어도 된다*/
+		background-position:left top; /* 이미지를 왼쪽 위로 기준을 맞춤 */
+		background-repeat:no-repeat; /* 배경 반복 적용 안함! */
+	}
+	li#cafe>a{
+		background:url("images/cafe.gif") no-repeat left top; /* background로 한번에 처리가능하다. */
+/* 		background-position:left top; */
+/* 		background-repeat:no-repeat; */
+	}
+	li#blog>a{
+		background:url("images/blog.gif") no-repeat left top;
+	}
+	li#kin>a{
+		background:url("images/kin.gif") no-repeat left top;
+	}
+	li#mail>a:hover{
+/* 		background-image:url("images/mail.gif"); 이미지는 이미 올라가있다. */
+		background-position:right top;
+	}
+	li#cafe>a:hover{
+		background-position:right top;
+	}
+	li#blog>a:hover{
+		background-position:right top;
+	}
+	li#kin>a:hover{
+		background-position:right top;
+	}
+</style>
+
+</head>
+<body>
+	<h1>수직메뉴</h1>
+	<div id="menu">
+		<ul id="v_menu">
+			<li id="mail"><a href="https://mail.naver.com/">메&nbsp;&nbsp;&nbsp;일</a></li>
+			<li id="cafe"><a href="https://cafe.naver.com/">카&nbsp;&nbsp;&nbsp;페</a></li>
+			<li id="blog"><a href="https://blog.naver.com/">블로그</a></li>
+			<li id="kin"><a href="https://kin.naver.com/">지식인</a></li>
+		</ul>
+	</div>
+</body>
+</html>

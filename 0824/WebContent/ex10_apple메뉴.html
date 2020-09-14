@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>apple메뉴</title>
+<style>
+	body{
+		margin:0;
+		padding:0;
+	}
+	header{
+		height:44px;
+		margin:0;
+		background-color:#2e2e2e;
+	}
+	ul#menu{
+		list-style:none;
+		margin:0;
+		padding:0;
+		text-align:center;
+		font:15px Arial;
+		line-height:44px;
+	}
+	ul#menu>li{
+		display:inline-block;
+		width:100px;
+/* 		margin-right:50px; */
+	}
+	ul#menu>li>a{
+		color:#cdcdcd;
+		text-decoration:none;
+/* 		line-height:44px; */
+	}
+	ul#menu a:hover{
+		color:#fff;
+/* 		line-height:44px; */
+	}
+	li#apple>a{
+ 		text-indent:-9999px;
+		background-image:url(images/apple.svg);
+		position:absolute;
+		top:0; /* y좌표 0 */
+		background-size: 16px 44px; /* 배경 너비, 높이 */
+		background-repeat:no-repeat;
+		background-position:center;
+ 		width:48px;
+		
+		margin-left:-24px;
+	}
+</style>
+</head>
+<body>
+	<header>
+		<ul id="menu">
+			<li id="apple"><a href="">apple</a></li>
+			<li><a href="">Mac</a></li>
+			<li><a href="">iPad</a></li>
+			<li><a href="">iPhone</a></li>
+			<li><a href="">Watch</a></li>
+			<li><a href="">TV</a></li>
+			<li><a href="">Music</a></li>
+			<li><a href="">Support</a></li>
+			<li><a href="">Search</a></li>
+			<li><a href="">Bag</a></li>
+		</ul>
+	</header>
+</body>
+</html>

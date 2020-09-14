@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ex7_수평메뉴</title>
+<style>
+	ul#menu{
+		margine:0;
+		padding:0;
+		list-style:none;
+		font-size:30px;
+		font-weight:bold;
+		font-family:sans-serif;	
+	}
+	ul#menu>li{
+		/* 수평으로 배치되어야 하고, 문자열의 크기만큼만 영역을 가지도록 한다면
+			수평메뉴가 가능하다.(인라인레벨) */
+		display:inline;
+		margin-right:20px; /* padding을 사용해서 안쪽여백을 주면 왼쪽으로 쏠린 느낌이 난다. */
+		width:300px;
+		border:1px solid black;
+	}
+	ul#menu a{
+		text-decoration:none; /* a태그의 밑줄 없앤다. */
+	}
+	ul#menu a:hover{
+		text-decoration:underline; /* 밑줄 */
+		color: #00bfff;
+	}
+</style>
+</head>
+<body>
+	<h1>수평메뉴 연습</h1>
+	<div>
+		<ul id="menu">
+			<li id="mail"><a href="">메일</a></li>
+			<li id="cafe"><a href="">카페</a></li>
+			<li id="blog"><a href="">블로그</a></li>
+			<li id="kin"><a href="">지식인</a></li>
+		</ul>
+	</div>
+</body>
+</html>
