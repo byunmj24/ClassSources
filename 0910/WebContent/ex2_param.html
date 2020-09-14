@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>파라미터 연습</h1>
+	<article>
+		<form name="frm" action="Ex2ParamServlet" method="get">
+			<label for="cellPhone">휴대폰:</label>
+			<!-- input type text는 value로 자동으로 저장된다! select는 아님 -->
+			<select id="cellPhone" name="c_phone">
+				<option value="010">010</option>
+				<option value="011">011</option>
+				<option value="017">017</option>
+			</select>
+			<label for="cellPhone2">-</label>
+			<input type="text" id="cellPhone2" name="c_phone"/>
+			<label for="cellPhone3">-</label>
+			<input type="text" id="cellPhone3" name="c_phone"/>
+			<!-- 전화번호는 input이 3개지만 별도의 데이터가 아니라 하나의 데이터로 취급해야하므로
+			parameter name을 같게  해준다. -->
+			<br/>
+			<label for="hobby">취미:</label>
+			<input type="checkbox" id="hobby1" name="hobby" value="영화감상"/>
+			<label for="hobby1">영화감상</label>
+			<input type="checkbox" id="hobby2" name="hobby" value="음악감상"/>
+			<label for="hobby2">음악감상</label>
+			<input type="checkbox" id="hobby3" name="hobby" value="독서"/>
+			<label for="hobby3">독서</label>
+			<input type="checkbox" id="hobby4" name="hobby" value="게임"/>
+			<label for="hobby4">게임</label>
+			<br/>
+			<input type="button" value="보내기" onclick="exe()"/>
+		</form>
+	</article>
+	
+	<script>
+		function exe(){
+			//유효성 검사 필요....
+			//document.forms[0].submit();
+			document.frm.submit();
+		}
+	</script>
+</body>
+</html>

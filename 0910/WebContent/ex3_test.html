@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>세션 연습</h1>
+	<article>
+		<form action="Ex3Servlet1" method="post">
+			<label for="u_name">이름:</label>
+			<input id="u_name" name="u_name"/><br/>
+			<label for="u_year">생년:</label>
+			<input id="u_year" name="u_year"/><br/>
+			
+			<button type="button" onclick="exe()">보내기</button>
+		</form>
+	</article>
+	<script>
+		function exe(){
+			//유효성 검사..
+			
+			document.forms[0].submit();
+		}
+	</script>
+</body>
+</html>
