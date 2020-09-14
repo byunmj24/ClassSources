@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ex1_연산자</title>
+</head>
+<body>
+
+<script>
+	//자바스크립트는 자료형을 따로 지정하지 않는다.
+	//값이 대입될 때 자동으로 지정됨!
+	var a1 = 100;
+	var a2 = 30;
+	
+	var a3 = a1+a2;
+	
+	//화면에 출력
+	document.write("a1 + a2 = " + a3 +"<br/>"); //130
+	document.write("a1 x a2 = " + (a1*a2) +"<br/>");
+	document.write("a1 / a2 = " + (a1/a2) +"<br/>");
+	document.write("a1 % a2 = " + (a1%a2) +"<br/>");
+	
+	if(a1>a2){
+		document.write("a1이 a2보다 크다.<br/>");
+	}
+	else{
+		document.write("a1이 a2보다 작다.<br/>");
+	}
+	for(i=0;i<10;i++){
+		document.write(i+"<br/>");
+	}
+	document.write("반복문 끝~");
+	
+</script>
+</body>
+</html>

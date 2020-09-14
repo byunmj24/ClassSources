@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ex5_innerHTML</title>
+<style>
+	#box1, #box2{
+		display:inline-block;
+		width:150px;
+		height:150px;
+		border:1px solid black;
+		margin-right:20px;
+		margin-top:20px;
+	}
+</style>
+</head>
+<body>
+	<h1>innerHTML/innerText 연습</h1>
+	
+	<button type="button" onclick="ex(this)">버튼1</button>
+	<button type="button" onclick="ex(this)">버튼2</button>
+	<br/>
+	<div id="box1"></div>
+	<div id="box2"></div>
+	
+	<script>
+		function ex(bt){
+			//console.log(bt.innerText);
+			//bt.innerText = "메롱";
+			// bt의 문자열이 "버튼1"이면 box1에 표현하고, "버튼2"이면 box2에 표현하자!
+			if(bt.innerText == '버튼1'){ 	//버튼1일때!
+				document.getElementById("box1").innerHTML = "<strong>버튼1</strong>";
+			}else{ 						//버튼2일때!
+				document.getElementById("box2").innerText = "<strong>버튼2</strong>";
+			}
+		}
+	</script>
+</body>
+</html>

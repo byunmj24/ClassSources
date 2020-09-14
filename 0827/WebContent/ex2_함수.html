@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ex2_함수</title>
+</head>
+<body>
+	<h1>함수 정의 및 호출</h1>
+	<input type="button" value="test1" onclick="test1()"/><br/>
+	<input type="button" value="test2" onclick="test2()"/><br/>
+	
+	<!-- 값을 하나 받아서 처리되는 입력란!
+		이때 접근해야 하므로 id를 부여하자! -->
+	<label for="txt">값:</label>
+	<input id="txt" name="s_txt"/>
+	
+	<script>
+		var a = 100; //자바로 치면 멤버변수?!
+		
+		function test1(){ //함수의 시작부분
+			//document.write(a++); //100
+			//document.write("<br/>");
+			//document.write(a); //101
+			++a;
+		} //함수의 끝부분
+		function test2(){
+			// 현재 문서에서 아이디가 txt인 요소를 검색
+			var txt = document.getElementById("txt");
+			
+			console.log(txt.name);
+			
+			//txt에 있는 값(value)을 얻어낸다.
+			console.log(txt.value);
+			
+			txt.value = a;
+		}
+	</script>
+</body>
+</html>

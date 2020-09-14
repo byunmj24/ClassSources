@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ex3_함수</title>
+<style>
+	div#box{
+		width:300px;
+		height:300px;
+		border:1px solid black;
+	}
+</style>
+</head>
+<body onload="changeBg('green')"> <!-- body 안의 모든 요소가 인식된 후 changeBg함수를 호출한다. -->
+	<h1>이벤트와 함수</h1>
+	?
+	<div id="box"></div>
+	
+	<script>
+		function changeBg(color){
+			document.getElementById("box").style.backgroundColor = color;
+		}
+	</script>
+</body>
+</html>
