@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ex1_position</title>
+<style>
+	#wrap{
+		border:2px solid red;
+		width:600px;
+		padding:0;
+		margin:30px auto; /* 위/아래, 좌/우의 값을 설정*/
+		/* margin:위,아래 / 좌,우 > auto : 좌,우를 똑같이 나누겠다. */
+		/* 3개면 좌,위/아래,우  // 4개면 위 우 아래 좌(시계방향) */
+	}
+	#wrap>div{ /* #box1, #box2, #box3 */
+		width:100px;
+		height:100px;
+		border:1px solid black;
+		margin:20px;
+		position:relative; /* 상대적 위치 설정 */
+	}
+	#box1{
+		background-color:#f00;
+		top:20px;
+		left:20px;
+	}
+	#box2{
+		background-color:#0f0;
+		top:30px;
+		left:20px;
+	}
+	#box3{
+		background-color:#ff0;
+		top:0px;
+		left:20px;
+	}
+</style>
+</head>
+<body>
+	<div id="wrap">
+		<div id="box1"></div>
+		<div id="box2"></div>
+		<div id="box3"></div>
+	</div>
+</body>
+</html>
