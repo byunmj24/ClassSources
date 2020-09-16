@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Emp">
+  <select id="searchEmpno" resultType="am.vo.EmpVO" parameterType="String">
+    select * from emp where empno = #{num}
+  </select>
+  <select id="search_nane" resultType="am.vo.EmpVO" parameterType="String">
+  	select * from emp where ename LIKE '%'||#{name}||'%'
+  </select>
+  
+  <!-- 동적쿼리 -->
+  <select id="search" resultType="am.vo.EmpVO" parameterType="java.util.Map">
+  	select * from emp
+  	<if test="searchType != null and searchValue != null">
+  	<!-- 여기는 parameterType으로 넘어온 Map구조에 searchType이라는 변수와 searchValue라는 변수가
+  		있을 경우에만 수행한다. -->
+  		<!-- trim prefix:넣어주는 것 / prefixOverrides:지워주는 것 (SQL강의 참조) -->
+  		<trim prefix="where">
+  			<choose>
+  				<when test="searchType == 0">
+  					<!-- searchType의 값이 0과 같을 때 수행하는 부분 -->
+  					<!-- to_char : 문자열로 형변환 -->
+  					to_char(empno) = #{searchValue}
+  				</when>
+  				<when test="searchType == 1">
+  					<!-- searchType의 값이 0과 같을 때 수행하는 부분 -->
+  					lower(ename) like lower('%'||#{searchValue}||'%')
+  				</when>
+  				<when test="searchType == 2">
+  					<!-- searchType의 값이 0과 같을 때 수행하는 부분 -->
+  					lower(job) like lower('%'||#{searchValue}||'%')
+  				</when>
+  			</choose>
+  		</trim>
+  	</if>
+  </select>
+  
+  <!-- 사원 정보 수정 -->
+  <update id="edit" parameterType="java.util.Map">
+  	update emp 
+  	<trim prefix="set" suffixOverrides=",">
+  		<if test="ename != null">
+  			ename = #{emane},
+  		</if> 
+  		<if test="job != null">
+  			job = #{job},
+  		</if>
+  		<if test="sal != null">
+  			sal = #{sal},
+  		</if>
+  	where empno = #{empno}
+  	</trim>
+  </update>
+</mapper>
