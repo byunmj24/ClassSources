@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	body{ font-size: 12px }
+	table{
+		border-collapse: collapse;
+		width: 500px;
+	}
+	table th, table tbody td{
+		border: 1px solid black;
+		padding: 4px;
+	}
+	table thead tr:first-child{ line-height: 40px; }
+	table thead td:last-child{ text-align: right; }
+	table caption { text-indent: -9999px; height: 0; }
+</style>
+</head>
+<body>
+	<h1>메모 목록</h1>
+	<table>
+		<caption>메모목록 보기</caption>
+		<colgroup>
+			<col width="60px"/> <!-- 번호 -->
+			<col width="*"/> <!-- 내용 -->
+			<col width="100px"/> <!-- 글쓴이 -->
+			<col width="100px"/> <!-- 글쓴날짜 -->
+		</colgroup>
+		<thead>
+			<tr>
+				<td colspan="2">
+					<form action="memoSearch.jsp" method="post">
+						<select id="searchType" name="searchType">
+							<option value="0">글쓴이</option>
+							<option value="1">내용</option>
+							<option value="2">날짜</option>
+						</select>
+						<input type="text" id="searchValue" name="searchValue"/>
+						<input type="button" value="검색"/>
+					</form>
+				</td>
+				<td colspan="2">
+					<input type="button" value="추가" id="add_btn" onclick="goAdd()">
+				</td>
+			</tr>
+			<tr>
+				<th>번호</th>
+				<th>내용</th>
+				<th>글쓴이</th>
+				<th>날짜</th>
+			</tr>
+		</thead>
+		<tbody>
+
+			<tr>
+				<td>3</td>
+				<td><a href="memoView.jsp?idx=3">이런 곳이 있군요?</a></td>	
+				<td>마루치</td>
+				<td>2020-09-17</td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td><a href="memoView.jsp?idx=2">여기에 자바에 대해서는 엄청 쉽게 답 주시는 분이 있으시다고 들었는데.. 맞나요?</a></td>	
+				<td>아라치</td>
+				<td>2020-09-16</td>
+			</tr>
+				<tr>
+				<td>1</td>
+				<td><a href="memoView.jsp?idx=1">자바를 공부하려 하는데 어떤 책이 좋을까요?</a></td>	
+				<td>을불</td>
+				<td>2020-09-16</td>
+			</tr>
+		</tbody>	
+	</table>
+	
+<script type="text/javascript">
+	function goAdd(){
+		location.href = "memoAdd.jsp";
+	}
+</script>
+</body>
+</html>
