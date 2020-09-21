@@ -29,9 +29,19 @@
 </style>
 </head>
 <body>
-	<h1>메모 목록</h1>
+<%
+	//요청시 한글처리
+	request.setCharacterEncoding("utf-8");
+
+	String type = request.getParameter("searchType");
+	String value = request.getParameter("searchValue");
+	
+	List<MemoVO> list = MemoDAO.search(type, value);
+	
+%>
+	<h1>검색 결과</h1>
 	<table>
-		<caption>메모목록 보기</caption>
+		<caption>결과 보기</caption>
 		<colgroup>
 			<col width="60px"/> <!-- 번호 -->
 			<col width="*"/> <!-- 내용 -->
@@ -63,9 +73,8 @@
 			</tr>
 		</thead>
 		<tbody>
-<% 
-			//MemoDAO를 통해 목록(List<MemoVO>) 가져오기
-			List<MemoVO> list = MemoDAO.getList();
+<% 			
+			//list를 반복처리
 			if(list.size()>0){
 				for(MemoVO vo : list){
 %>
@@ -81,7 +90,7 @@
 				//목록이 하나도 없는 경우
 %>
 			<tr>
-				<td colspan="4" class="h70">등록된 메모가 없습니다.</td>
+				<td colspan="4" class="h70">검색된 메모가 없습니다.</td>
 			</tr>
 <%
 			}
@@ -93,7 +102,6 @@
 	function goAdd(){
 		location.href = "memoAdd.jsp";
 	}
-	/*내 SEARCH script code
 	function search(f){
 		var v= f.searchValue;
 		if(!v.value || v.value.trim().length==0){
@@ -103,19 +111,6 @@
 			return;
 		}
 		f.submit();
-	}*/
-	//쌤 SEARCH script code
-	function search(frm){
-		var v = frm.searchValue.value;
-		
-		if(v.trim().length < 1){
-			alert("검색할 단어를 입력하세요");
-			v = "";
-			//frm.searchValue.focus();
-			document.getElementById("searchValue").focus();
-			return;
-		}
-		frm.submit();//서버로 보낸다.
 	}
 </script>
 </body>

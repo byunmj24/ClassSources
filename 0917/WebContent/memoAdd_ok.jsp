@@ -5,14 +5,18 @@
 <%@page import="java.util.Calendar"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-<%
+<%	//쌤 INSERT code
+	request.setCharacterEncoding("utf-8");
+	String writer = request.getParameter("writer");
+	String content = request.getParameter("content");
+	String ip = request.getParameter("ip");
+	
+	boolean cmd = MemoDAO.add(writer, content, ip);
+	
+	//화면 강제 이동 - 화면 이동은 하나의 응답
+	response.sendRedirect("memoList.jsp");
+%>
+<% /* 내 INSERT code
 	request.setCharacterEncoding("utf-8");
 	String writer = request.getParameter("writer");
 	String content = request.getParameter("content");
@@ -36,6 +40,5 @@
 	MemoDAO.add(vo);
 	
 	response.sendRedirect("memoList.jsp");
+	*/
 %>
-</body>
-</html>
