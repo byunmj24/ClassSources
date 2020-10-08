@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="memo">
+	<!-- 목록을 만들기 위한 SELECT -->
+	<select id="total" resultType="mybatis.vo.MemoVO">
+		select * from memo_t order by idx desc
+	</select>
+	
+	<!-- 저장을 위한 INSERT -->
+	<!-- 내 INSERT
+	<insert id="add" parameterType="mybatis.vo.MemoVO">
+		insert into memo_t(idx, writer,	content, reg_date, ip)
+		values(memo_seq.nextval, #{writer},	#{content}, to_char(sysdate, 'RRRR-MM-DD'), #{ip})
+		values(memo_seq.nextval, #{writer},	#{content}, #{reg_date}, #{ip})
+	</insert>
+	-->
+	<!-- 쌤 INSERT -->
+	<insert id="add" parameterType="java.util.Map">
+		insert into memo_t(idx, writer, content, reg_date, ip)
+		values(memo_seq.nextval, #{writer},	#{content}, sysdate, #{ip})
+	</insert>
+	 
+	<!-- 보기를 위한 SELECT -->
+	<!-- 내 VIEW
+	<select id="view" resultType="mybatis.vo.MemoVO" parameterType="mybatis.vo.MemoVO">
+		select * from memo_t where idx =#{idx}
+	</select>
+	-->
+	<!-- 쌤 VIEW -->
+	<select id="get_memo" resultType="mybatis.vo.MemoVO" parameterType="String">
+		select * from memo_t where idx = #{idx}
+	</select>
+	
+	<!-- 검색을 위한 SELECT (동적쿼리) -->
+	<!-- 내 SEARCH
+	<select id="search" resultType="mybatis.vo.MemoVO" parameterType="java.util.Map">
+		select * from memo_t
+		<if test="searchType != null and searchValue != null">
+			<trim prefix="where">
+				<choose>
+					<when test="searchType == 0">
+						lower(writer) = lower('%'||{#searchValue}||'%')
+					</when>
+					<when test="searchType == 1">
+						lower(content) = lower('%'||{#searchValue}||'%')
+					</when>
+					<when test="searchType == 2">
+						reg_date = {#searchValue}
+					</when>
+				</choose>
+			</trim>
+		</if>
+	</select>
+	-->
+	<!-- 쌤 SEARCH -->
+	<select id="search" parameterType="java.util.Map" resultType="mybatis.vo.MemoVO">
+		select * from memo_t
+		<if test = "searchType != null and searchValue != null">
+			<trim prefix="where">
+				<choose>
+					<when test="searchType == 0">
+						writer like '%'||#{searchValue}||'%'
+					</when>
+					<when test="searchType == 1">
+						content like '%'||#{searchValue}||'%'
+					</when>
+					<when test="searchType == 2">
+						to_char(reg_date, 'yyyy-mm-dd') like '%'||#{searchValue}||'%'
+					</when>
+				</choose>
+			</trim>
+		</if>
+	</select>
+	
+	<!-- 수정을 위한 UPDATE -->
+	<update id="edit" parameterType="java.util.Map">
+		update memo_t
+		<trim prefix="set" suffixOverrides=",">
+			<if test="writer != null">
+				writer = #{writer},
+			</if>
+			<if test="conternt != null">
+				content = #{content},
+			</if>
+			<if test="reg_date != null">
+				reg_date = #{reg_date},
+			</if>
+		</trim>
+		where idx = #{idx}
+	</update>
+	
+	<!-- 공지사항 보기 -->
+	<select id="list" resultType="mybatis.vo.MemoVO" parameterType="java.util.Map">
+		select * from(
+   			select rownum rnum, a.* from
+        		(select * from memo_t order by idx desc
+        	) a
+		) where rnum between #{begin} and #{end}
+	</select>
+</mapper>

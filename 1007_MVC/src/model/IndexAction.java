@@ -1,9 +1,14 @@
 package model;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.websocket.Session;
+
+import mybatis.dao.MemoDAO;
+import mybatis.vo.MemoVO;
 
 public class IndexAction implements Action {
 
@@ -29,10 +34,24 @@ public class IndexAction implements Action {
 		}
 		*/
 		
+		//공지사항 3개 가져오기
+		String begin ="1";
+		String end ="3";
+		//begin, end 변수만 바꿔주면 보여주는 list를 바꿀 수 있다.
+		List<MemoVO> list = MemoDAO.list(begin, end);
+		
+		//위에서 받은 List를 가지고 배열화 시킨다.
+		MemoVO[] ar = null;
+		if(list != null && list.size() > 0) {
+			ar = new MemoVO[list.size()];
+			list.toArray(ar);
+		}
+		
+		//JSP에서 표현하기 위해 request에 "ar"이라는 이름으로 저장한다.
+		request.setAttribute("ar", ar);
 		
 		
-		
-		return "/jsp/index.jsp";
+		return "/jsp/index.jsp";//호출하는 곳(Controller)으로 반환!
 	}
 
 }
