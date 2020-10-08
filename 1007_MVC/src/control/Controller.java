@@ -38,6 +38,7 @@ public class Controller extends HttpServlet {
 		
 		//요청시 한글처리
 		request.setCharacterEncoding("utf-8");
+		
 		String type = request.getParameter("type");
 		String viewPath = null;
 		Action action = null;
