@@ -1,0 +1,51 @@
+# 댓글형 게시판 작업에 필요한 SQL문
+
+# -- 1) 시퀀스 작성 :: 원글의 시퀀스로 기본키에 쓰인다.
+	CREATE SEQUENCE bbs_seq
+	increment by 1
+	start with 1
+	nomaxvalue;
+
+#    ::댓글의 시퀀스로 기본키에 쓰인다.
+	CREATE SEQUENCE comment_seq
+	increment by 1
+	start with 1
+	nomaxvalue;
+
+#    :: 원글 테이블 작성
+	CREATE TABLE bbs(
+		b_idx   NUMBER(6,0) CONSTRAINT bbs_pk PRIMARY KEY,
+		subject  VARCHAR2(50),
+		writer  VARCHAR2(20),
+		content  CLOB,
+		file_name  VARCHAR2(50),
+		write_date  DATE,
+		ip  VARCHAR2(30),
+		hit  NUMBER(4),
+		status NUMBER(1),
+		bname VARCHAR2(10)
+	);
+
+#    :: 댓글 테이블 작성
+	CREATE TABLE comment_t(
+		c_idx  NUMBER(6) CONSTRAINT comment_pk PRIMARY KEY,
+		writer  VARCHAR2(20),
+		content  CLOB,
+		write_date  DATE,
+		ip  VARCHAR2(30),
+		b_idx  NUMBER(6,0),
+		CONSTRAINT comment_fk FOREIGN KEY(b_idx) REFERENCES bbs(b_idx)
+	);
+
+
+
+
+
+
+
+
+
+
+
+
+	
