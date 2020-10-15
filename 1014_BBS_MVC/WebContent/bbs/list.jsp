@@ -64,6 +64,7 @@
 	}
 	
 	.disable {
+		display:none;
 	    padding:3px 7px;
 	    border:1px solid silver;
 	    color:silver;
@@ -100,39 +101,29 @@
 			<tfoot>
                       <tr>
                           <td colspan="4">
-                              <ol class="paging">
-                                  
-               
-
-<li><a href="#">이전으로</a></li>
-
-	<li class="now">1</li>
-         
-	<li><a href="#">2</a></li>
-
-
- 
-		<li><a href="#">다음으로</a></li>
-	
-                              </ol>
+                             ${requestScope.p_code }
                           </td>
 						  <td>
 							<input type="button" value="글쓰기"
-			onclick="javascript:location.href='write.jsp'"/>
+			onclick="javascript:location.href='Controller?type=write'"/>
 						  </td>
                       </tr>
                   </tfoot>
 			<tbody>
 			<c:if test="${ar ne null }">
-					<c:forEach var="vo" items="${requestScope.ar }">
+					<c:forEach var="vo" items="${requestScope.ar }" varStatus="st">
 				<tr>
-					<td>${vo.b_idx }</td>
+					<td>${rowTotal - st.index - (blockList*(nowPage - 1)) }</td>
 					<td style="text-align: left">
-						<a href="#">
-					${vo.subject }
+						<a href="Controller?type=view&cPage=${nowPage }&b_idx=${vo.b_idx}">
+						${vo.subject }
 					</a></td>
 					<td>${vo.writer }</td>
-					<td>${fn:substring(vo.write_date, 0, 10) }</td>
+					<td>
+					<c:if test="${vo.write_date ne null }">
+						${fn:substring(vo.write_date, 0, 10) }
+					</c:if>
+					</td>
 					<td>${vo.hit }</td>
 				</tr>
 					</c:forEach>

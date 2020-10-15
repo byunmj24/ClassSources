@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import bbs.action.Action;
 import bbs.action.ListAction;
+import bbs.action.ViewAction;
+import bbs.action.WriteAction;
 
 
 /**
@@ -40,11 +42,21 @@ public class Controller extends HttpServlet {
 		Action action = null;
 		if(type == null || type.equals("list"))
 			action = new ListAction();
+		else if(type.equals("write"))
+			action = new WriteAction();
+		else if(type.equals("view"))
+			action = new ViewAction();
 		
 		String viewPath = action.execute(request, response);
+		if(viewPath != null) {
 		RequestDispatcher disp = request.getRequestDispatcher(viewPath);
 		
 		disp.forward(request, response);
+		} else {
+			//viewPath가 null을 가졌다면 목록창으로 이동한다.
+			//때에 따라서 sendRedirect가 필요하다면 이렇게도 쓸 수 있다.
+			response.sendRedirect("Controller");
+		}
 		
 	}
 
