@@ -113,10 +113,10 @@
 	</div>
 	
 	<form action="Controller" method="post" name="frm1">
-		<input type="hidden" name="type" value=""/>
+		<input type="hidden" name="type"/>
 		<input type="hidden" name="cPage" value="${param.cPage }"/><%--forward방식으로 보냈기때문에 parameter로 보냈던 cPage 사용가능 --%>
 		<input type="hidden" name="b_idx" value="${vo.b_idx }"/>
-		<input type="hidden" name="f_name" value="${vo.file_name }"/>
+		<input type="hidden" name="f_name"/>
 	</form>
 	
 	<script>
@@ -126,6 +126,10 @@
 		}
 		function editBbs(){
 			document.frm1.type.value = "edit";
+			document.frm1.submit();
+		}
+		function delBbs(){
+			document.frm1.type.value = "del";
 			document.frm1.submit();
 		}
 	</script>

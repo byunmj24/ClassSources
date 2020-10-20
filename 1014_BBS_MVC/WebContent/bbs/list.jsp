@@ -82,6 +82,9 @@
 		height:50px;
 	}
 		
+	.deco {
+		text-decoration : none;
+	}
 </style>
 </head>
 <body>

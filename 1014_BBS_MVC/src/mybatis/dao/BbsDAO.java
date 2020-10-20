@@ -74,4 +74,41 @@ public class BbsDAO {
 		return vo;
 	}
 
+	//수정 기능
+	public static boolean editBbs(String b_idx, String subject, String content, String fname, String ip) {
+		boolean value = false;
+		
+		Map<String, String> map = new Hashtable<String, String>();
+		map.put("b_idx", b_idx);
+		map.put("subject", subject);
+		map.put("content", content);
+		//파일첨부가 되었을 때만 파일명을 DB에 저장! 만약? 첨부된 파일이 없다면 기존 파일을 유지하자!
+		if(fname != null && fname.trim().length() > 0) 
+			map.put("fname", fname);
+		
+		SqlSession ss = FactoryService.getFactory().openSession();
+		
+		int cnt = ss.update("bbs.edit", map);
+		if(cnt > 0) {
+			ss.commit();
+			value = true;
+		}else {
+			ss.rollback();
+		}
+		ss.close();
+		
+		return value;
+	}
+	
+	//삭제 기능
+	public static void delBbs(String b_idx) {
+		SqlSession ss = FactoryService.getFactory().openSession();
+		int cnt = ss.update("bbs.del", b_idx);
+		if(cnt > 0) {
+			ss.commit();
+		} else {
+			ss.rollback();
+		}
+		ss.close();
+	}
 }

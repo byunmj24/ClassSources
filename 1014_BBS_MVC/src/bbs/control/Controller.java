@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import bbs.action.Action;
+import bbs.action.DelAction;
+import bbs.action.EditAction;
 import bbs.action.ListAction;
 import bbs.action.ViewAction;
 import bbs.action.WriteAction;
@@ -46,6 +48,10 @@ public class Controller extends HttpServlet {
 			action = new WriteAction();
 		else if(type.equals("view"))
 			action = new ViewAction();
+		else if(type.equals("edit"))
+			action = new EditAction();
+		else if(type.equals("del"))
+			action = new DelAction();
 		
 		String viewPath = action.execute(request, response);
 		if(viewPath != null) {

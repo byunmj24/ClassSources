@@ -73,7 +73,7 @@ public class Paging {
 		//페이징 기법에 사용할 HTML코드를 작성하여 StringBuffer에 저장하자!
 		sb = new StringBuffer("<ol class='paging'>");
 		if(isPrePage) {
-			sb.append("<li><a href='Controller?cPage=");
+			sb.append("<li><a class='deco' href='Controller?cPage=");
 			sb.append(startPage - blockPage);
 			sb.append("'> &lt; </a></li>");
 		} else {
@@ -89,7 +89,7 @@ public class Paging {
 				sb.append(i);
 				sb.append("</li>");
 			} else {
-				sb.append("<li><a href='Controller?cPage=");
+				sb.append("<li><a class='deco' href='Controller?cPage=");
 				sb.append(i);
 				sb.append("'>");
 				sb.append(i);
@@ -99,7 +99,7 @@ public class Paging {
 		
 		//다음기능 가능여부 확인
 		if(isNextPage) {
-			sb.append("<li><a href='Controller?cPage=");
+			sb.append("<li><a class='deco' href='Controller?cPage=");
 			sb.append(startPage + blockPage);
 			sb.append("'> &gt; </a></li>");
 		} else {
