@@ -1,14 +1,19 @@
 package com.project.ex;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import mybatis.dao.MemDAO;
 import mybatis.vo.MemVO;
 
 @Controller
 public class IndexController {
+	@Autowired
+	private MemDAO m_dao; 
+	
 	@RequestMapping("/")
 	public String index() {
 		return "index";// views/index.jsp를 의미
@@ -24,6 +29,7 @@ public class IndexController {
 		ModelAndView mv = new ModelAndView();
 		
 		System.out.println("ID : " + vo.getM_id() + " / " + "PW : " + vo.getM_pw());
+		
 		
 		mv.setViewName("index");
 		

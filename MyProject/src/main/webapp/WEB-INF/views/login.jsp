@@ -46,7 +46,7 @@ href="css/login.css"/>
 					</div>
 					<div class="btnArea_right">
 						<span class="btn b_login">
-						 <a href="javascript:exe()">로그인</a>
+						 <a href="javascript:exe()" id="login_btn">로그인</a>
 						</span>
 					</div>
 					<div class="fclear"></div>
@@ -121,7 +121,9 @@ href="css/login.css"/>
 	</div>
 	<!-- 하단 영역 끝 -->
 </div>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 <script>
+/*
 	function exe(){
 		//var id = document.forms[0].id.value();
 		var id = document.getElementById("s_id").value;
@@ -136,6 +138,21 @@ href="css/login.css"/>
 		}
 		document.forms[0].submit();
 	}
+	*/
+	$(function(){
+		$("#login_btn").bind("click", function(){
+			
+			$.ajax({
+				url: "index",
+				type: "post",
+				dataType: "json"
+			}).done(function(data){
+				
+			}).fail(function(){
+				alert("가입된 회원이 없습니다.");
+			});
+		});
+	});
 </script>
 </body>
 </html>
