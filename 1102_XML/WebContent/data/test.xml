@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+	DTD(Document Type Definition) 문서의 구조를 정의하는 문서
+ -->
+<!DOCTYPE members SYSTEM "ex1.dtd">
+<members>
+	<person no="A10">
+		<name>홍길동</name>
+		<phone service="SKT">010</phone>
+	</person>
+</members>

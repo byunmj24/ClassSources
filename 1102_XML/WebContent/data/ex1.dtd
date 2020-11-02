@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+	* : 생략가능, 중복가능
+	+ : 생략불가능, 중복가능
+	? : 생략가능, 중복불가능
+	지정없음 : 생략불가능, 중복불가능(무조건 1개 사용)
+-->
+
+<!ELEMENT members (person*)>
+<!ELEMENT person (name,phone)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT phone (#PCDATA)>
+
+<!ATTLIST person no CDATA #FIXED "A10">
+<!-- person요소에 no라는 속성을 설정한 것이다.
+	만약! person요소에 no라는 속성을 정의한다면
+	반드시 속성값이 "A10"이어야 한다.-->
+	
+<!ATTLIST phone service CDATA #REQUIRED> 
+<!-- phone요소에 service라는 속성이 반드시 필요하다.
+	하지만 값은 사용자가 직접 넣어야 한다. -->
